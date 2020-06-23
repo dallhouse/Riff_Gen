@@ -1,0 +1,153 @@
+Riff Gen
+v1.01.01
+Developed by Alex Bredall
+
+
+Riff Gen is a random guitar riff generator different from any others that
+may exist. This is due to the program's flexibility and simplistic
+feature-set.Not only this, but Riff Gen was built with guitarists in mind,
+so the generation process, while still truly 'random,' restricts patterns
+that are clunky or non-musical, while allowing room for the spacey
+non-repetitive goodness. Simply determine the base note division for each
+measure, the number of measures you want, configure your desired note
+weights and generate a new riff!
+
+Keep in mind that Riff Gen limits riff generation length to a minimum of 4
+and maximum of 32. You can use whole notes or triplets for your base,
+however, the longest acceptable note division are 16th notes. In addition
+division base of '4' would refer to quarter-notes, '8' to eighth-notes, and
+so on. Unless another input is provided, Riff Gen will use a default value
+of '4' when calculating its next riff. Note 1, sustain, silence, repetition,
+and flair sliders are set to a value of 50, while the rest of the weights
+are disabled.
+
+
+
+_________________________________WEIGHTS______________________________________
+Each note weight is represented by a slider. A checkbox is used to set its
+respective slider value to zero and disable the slider. Note 1 is the only
+“note” that must always be present. The entry field below the slider reads
+and writes to/from the slider value. In other words, these two are
+bi-directional and one will dynamically update if the other is changed. Each
+slider starts at 0 and ends at a 100, however, this is an arbitrary range and
+these weight values are being used in different ways (read below.) Note
+abbreviations are displayed above each slider. See the on-screen key for
+meanings of these abbreviations as any notes with a non-zero weight will
+be automatically loaded into it.
+
+Among the "notes" represented by the weight sliders, there are five note
+types: note 1 (N1), note 2 (N2), sustain (o)(must come after Note 1 or Note
+2), silence (-), and mute (X). Remember that Note 2 is not meant to
+represent any single note, but rather any note other than the base Note 1,
+which is generally thought of as an open-fret strum. There are three
+additional modifiers: palm mute (p), 'flair' ([]), and repetition (R). Riff
+Gen uses these note types when randomly generating the base riff. Each
+fundamental note weight is compared to the sum of the weights in order to
+calculate what percentage of the riff should contain the note in question.
+In this case, note weights directly correspond to the likelihood of that
+note being selected.
+
+Once generated, the notes are modified, first by adding palm mutes
+(displayed right before either N1 or N2), followed by ‘flair’ and then
+repetition. ‘Flair’ represents notes played twice as fast as the base riff
+(i.e. eighth notes played during a quarter-note base riff). A maximum flair
+weight will flair up to about 75% of the riff. Repetition simply uses its
+respective weight to determine the size of the chunk to repeat (between
+half the current measure length and a full measure) and how many times
+to repeat it (this depends on the overall length of the riff.) This function
+may often seem unnoticeable, but is there to provide an element thats less
+random, and more human.
+
+
+
+__________________________________BUTTONS______________________________________
+The arrow buttons refer to size changes to the note division of the current
+riff. The ‘Decrease Division’ button (left) will redistribute the notes in
+your riff so that its note division is one value less than its original
+designation, while still maintaining the original number of measures thanks
+to the hidden riff cache. This means that you cannot generate a measure
+with six notes and decrease to a five-note measure.
+
+The ‘Increase Division’ button works the exact same, but increases the
+notes per measure rather than decreases.
+
+'Random' generates random values for every possible variable and
+generates a new riff, while 'Add' simply appends a new riff to the end of
+the current one - while both maintaining Riff Gen's note limits.That being
+said, v1.01.01 does not support the playback or division alteration of riffs
+once the add function has been performed.
+
+
+
+__________________________________RESULTS___________________________________
+The black message bar above the result box will display any messages or
+errors on the left. If the current riff has any measure with a triplet note
+division, the word 'triplets' will appear on the right side of the message
+box until the riff is changed to an even base.
+
+
+
+_________________________________PLAYBACK____________________________________
+The playback menu beneath the result box is for both the audio and the
+save functions. The play function will generate sine waves to represent
+each note in the riff. Keep in mind that the play function will stall all
+pending processes! This is Riff Gen's greatest weakness, so use with
+precaution, because once it's playing, you can only mute your computer.
+It is because of this that the loop function will loop the current riff
+only four times. Eventually, you will be able to save this sine wave riff
+as a WAV file, but for now the only option is to save as a .TXT to your
+downloads folder with the name "my_riff_" followed by an incremental
+save identifier.The black message bar will the live-update with the exact
+file path.
+
+The two sliders in the playback menu correspond to 'Speed,' and 'Pitch'.
+As of now, 'Speed' does not quite equate to tempo, however, the tempo
+does change slightly depending on the current note division. The pitch
+of each of the three different note frequencies (note1, note2, and mute)
+are all fixed to one another - so changing the 'Pitch' slider adjusts all
+values at once.
+
+
+
+________________________________SHORTCUTS___________________________________
+Return.............New Riff
+Shift-Return.......Random Riff
+Option-Left........Decrease Division
+Option-Right.......Increase Division
+Control-I..........Open/Close Info
+Command-P..........Play
+Command-Shift-P....Loop and Play
+Command-S..........Save to .TXT
+Escape.............Clear Riff and Notifications
+Shift-Escape.......Quit
+
+
+
+
+If at any time you feel confused, remember that most widgets will
+reveal a brief tooltip descriptor when the cursor is above it. For
+more information, check back here. Please enjoy Riff Gen and feel
+free to contact me with suggestions and improvements!
+
+
+
+
+_____________________________FUTURE_UPDATES___________________________________
+- remove limitations created by the add function
+- save all riffs to a cache or temp text file and add a back button
+      in case someone misses their old riff
+- change info to "options" menubar with a 'preferences' tab that leads
+      to a pop-up allowing you to change the note symbols, shortcuts,
+      and amount of loop reps
+- add a tab to switch between results and custom riff with editable
+      canvas to allow riff creation (opened text files will also
+      appear here)
+- save function
+     - make cascading directories for saving?
+     - make a save text template including Riff Gen info and datetime
+     - allow .TXT files to be played back
+- playback
+     - add a save audio function (multiple formats)
+     - convince audio player to not stall the app
+     - add metronome
+     - add spacebar playability
